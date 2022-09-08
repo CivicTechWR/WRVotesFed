@@ -8,11 +8,13 @@ From: https://christianspecht.de/2014/06/18/building-a-pseudo-dynamic-tree-menu-
       {%- for item in site.data.internal.menu-layout %}
         {% if item.url contains '://' -%}
             {% assign linkurl = item.url %}
+            {% assign which = "standalone" %}
         {% else %}
-            {%- capture linkurl -%}{{ site.baseurl }}{{ item.url }}{%-
-            endcapture -%}
+            {%- capture linkurl -%}{{ site.baseurl }}{{ item.url }}{%- endcapture -%}
+            {% assign which = "internal" %}
+
         <li><a href="{{ linkurl }}"
-            {%- if item.url == navurl %} class="current"{% endif -%}>
+            {%- if item.url == navurl %} class="current {{ which }}"{% endif -%}>
             {{- item.text -}}
         </a></li>
       {% endfor -%}
