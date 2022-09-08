@@ -14,8 +14,8 @@ From: https://christianspecht.de/2014/06/18/building-a-pseudo-dynamic-tree-menu-
             {% assign which = "internal" %}
 
         <li><a href="{{ linkurl }}"
-            {%- if item.url == navurl %} class="current {{ which }}"{% endif -%}>
-            {{- item.text -}}
+            {%- if item.url == navurl %} class="current"{% endif -%}>
+            {{- item.text which -}}
         </a></li>
       {% endfor -%}
     </ul>
