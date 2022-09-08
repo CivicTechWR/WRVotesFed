@@ -14,6 +14,7 @@ From: https://christianspecht.de/2014/06/18/building-a-pseudo-dynamic-tree-menu-
 
         <li><a href="{{ linkurl }}"
             {%- if item.url == navurl %} class="current"{% endif -%}>
+            {%- item.text -%}
         </a></li>
       {% endfor -%}
     </ul>
