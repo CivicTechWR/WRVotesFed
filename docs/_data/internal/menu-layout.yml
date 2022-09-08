@@ -2,7 +2,7 @@
 # This may not be the best approach. See:
 # https://thinkshout.com/blog/2014/12/creating-dynamic-menus-in-jekyll/
 
-- text: Home
+- text: Home v01
   url: /
 - text: Ridings 
   url: /ridings/
