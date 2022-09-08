@@ -6,7 +6,12 @@ From: https://christianspecht.de/2014/06/18/building-a-pseudo-dynamic-tree-menu-
   <div class="inner">
     <ul>
       {%- for item in site.data.internal.menu-layout %}
-        <li><a href="{{ site.baseurl }}{{ item.url }}"
+        {% if item.url contains '://' -%}
+            {% assign linkurl = item.url %}
+        {% else %}
+            {%- capture linkurl -%}{{ site.baseurl }}{{ item.url }}{%-
+            endcapture -%}
+        <li><a href="{{ linkurl }}"
             {%- if item.url == navurl %} class="current"{% endif -%}>
             {{- item.text -}}
         </a></li>
