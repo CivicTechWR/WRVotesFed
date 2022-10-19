@@ -400,3 +400,69 @@ body {
     }
   }
 }
+
+.candidate-container {
+  display: flex;
+  flex-direction: column;
+
+  .candidate-card {
+    align-items: center;
+    background-color: grey;
+    display: flex;
+    width: 600px;
+    height: 104px;
+    margin-bottom: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+    justify-content: space-between;
+
+    .candidate-info-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        .candidate-photo {
+            height: 88px;
+            width: 88px;
+            border-radius: 100px;
+            background-color: red;
+            margin-right: 8px;
+        }
+
+        .candidate-details {
+            .candidate-name {
+                color: grey;
+            }
+        }
+    }
+
+    .candidate-social-container {
+        display: flex;
+        justify-content: space-between;
+
+        .social-icon {
+            margin-right: 16px;
+            repeat: none;
+            height: 32px;
+            width: 32px;
+            background-repeat: none;
+        }
+
+        .candidate-social-fb {
+            background-image: url(../icons/svg/facebook.svg);
+        }
+
+        .candidate-social-tw {
+            background: url(../icons/svg/twitter.svg);
+        }
+
+        .candidate-social-ig {
+            background: url(..);
+        }
+
+        .candidate-social-li {
+            background: url(../icons/svg/linkedin.svg);
+        }
+    }
+  }
+}

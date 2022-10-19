@@ -1,0 +1,74 @@
+<ul>
+      {% for nominee in sorted-nominees %}
+        <li>
+        {% if nominee.Withdrawn == 'Y' -%}
+          <strong>WITHDRAWN: </strong>
+        {%- endif -%}
+
+        {{ nominee.Given_Names }} {{ nominee.Last_Name }}
+
+        {%- if nominee.Party %}
+          {{ }}({{ nominee.Party }})
+        {%- endif -%}
+
+        {%- unless nominee.Withdrawn == 'Y' -%}
+          {% assign num-seps = 0 %}
+
+          {%- if nominee.Website -%}
+            {%- include punctuate.html num-sofar=num-seps -%}
+            {%- assign num-seps = num-seps | plus: 1 -%}
+
+            <a href="{%- include get-website.html site=nominee.Website -%}">Website</a>
+          {%- endif -%}
+
+          {%- if nominee.Phone -%}
+              {%- include punctuate.html num-sofar=num-seps -%}
+              {%- assign num-seps = num-seps | plus: 1 -%}
+
+              {{ nominee.Phone }}
+          {%- endif -%}
+
+          {%- if nominee.Email -%}
+              {%- include punctuate.html num-sofar=num-seps -%}
+              {%- assign num-seps = num-seps | plus: 1 -%}
+
+              {{ nominee.Email }}
+          {%- endif -%}
+
+          {%- if nominee.Facebook -%}
+            {%- include punctuate.html num-sofar=num-seps -%}
+            {%- assign num-seps = num-seps | plus: 1 -%}
+
+            <a href="{%- include get-website.html site=nominee.Facebook -%}">Facebook</a>
+          {%- endif -%}
+
+          {%- if nominee.Twitter -%}
+
+           {%- include punctuate.html num-sofar=num-seps -%}
+           {%- assign num-seps = num-seps | plus: 1 -%}
+
+            <a href="{%- include get-website.html site=nominee.Twitter -%}">Twitter</a>
+          {%- endif -%}
+
+          {%- if nominee.Instagram -%}
+
+           {%- include punctuate.html num-sofar=num-seps -%}
+           {%- assign num-seps = num-seps | plus: 1 -%}
+
+            <a href="{%- include get-website.html
+            site=nominee.Instagram -%}">Instagram</a>
+          {%- endif -%}
+
+          {%- if nominee.LinkedIn -%}
+
+           {%- include punctuate.html num-sofar=num-seps -%}
+           {%- assign num-seps = num-seps | plus: 1 -%}
+
+            <a href="{%- include get-website.html
+            site=nominee.LinkedIn -%}">LinkedIn</a>
+          {%- endif -%}
+        {%- endunless -%}
+
+        </li>
+        {% endfor %}
+      </ul>
